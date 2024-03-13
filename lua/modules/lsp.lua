@@ -1,5 +1,5 @@
 local lspconfig = require'lspconfig'
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap (...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -20,6 +20,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>dl', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 end
+
+lspconfig.gopls.setup{
+  capabilities = capabilities;
+  on_attach = on_attach;
+}
 
 lspconfig.tsserver.setup{
   capabilities = capabilities;

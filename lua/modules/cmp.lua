@@ -21,13 +21,13 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },
-  }
+  },
 })
 
 cmp.setup.cmdline('/', {
   sources = {
     { name = 'buffer' }
-  }
+  },
 })
 
 cmp.setup.cmdline(':', {

@@ -39,11 +39,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'neovim/nvim-lspconfig'
 Plug 'noah/vim256-color'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -76,9 +78,10 @@ nmap <Leader>* <Plug>RgRawWordUnderCursor<CR>
 
 inoremap <C-c> <Esc>`^
 
-color fu
+color sonokai
 
 lua <<EOLUA
   require('modules.cmp')
   require('modules.lsp')
+  require('modules.treesitter')
 EOLUA
